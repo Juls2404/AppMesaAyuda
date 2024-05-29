@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,23 @@
     {% load bootstrap4 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-    <title>Mesa Ayuda CTPI</title>
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static '../static/css/app.css' %}">
+
+    <title>Mesa de Servicio CTPI - Cauca</title>
 </head>
+
 <body>
     <div class="container">
         <header>
             {% block encabezado %}
             {% endblock %}
         </header>
-        <nav>
+        <div>
             {% block menu %}
             {% endblock %}
-        </nav>
+        </div>
         <section>
             {% block contenido %}
             {% endblock %}
@@ -27,6 +33,8 @@
             {% block piePagina %}
             {% endblock %}
         </footer>
+
     </div>
 </body>
+
 </html>

@@ -10,7 +10,8 @@ tipoOficinaAmbiente = [
 
 tipoUsuario = [
     ('Administrativo', 'Administrativo'),
-    ('Instructor', 'Instructor')
+    ('Instructor', 'Instructor'),
+    ('Tecnico', 'Tecnico')
 ]
 
 estadoCaso = [
@@ -87,6 +88,9 @@ class Caso(models.Model):
     fechaHoraActualizacion = models.DateTimeField(auto_now=True,
                                                 db_comment="Fecha y hora última actualización")
 
+def __str__(self) -> str:
+    return f"{self.casCodigo}"
+
 
 class TipoProcedimiento(models.Model):
     tipNombre = models.CharField(
@@ -96,6 +100,9 @@ class TipoProcedimiento(models.Model):
                                             db_comment="Fecha y hora del registro")
     fechaHoraActualizacion = models.DateTimeField(auto_now=True,
                                                 db_comment="Fecha y hora última actualización")
+
+def __str__(self) ->str:
+    return self.tipNombre
 
 
 class SolucionCaso(models.Model):
@@ -109,6 +116,9 @@ class SolucionCaso(models.Model):
                                             db_comment="Fecha y hora del registro")
     fechaHoraActualizacion = models.DateTimeField(auto_now=True,
                                                 db_comment="Fecha y hora última actualización")
+
+def __str__(self) ->str:
+    return self.solTipoSolucion
 
 
 class SolucionCasoTipoProcedimientos(models.Model):

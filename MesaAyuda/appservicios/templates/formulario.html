@@ -1,50 +1,40 @@
-{% extends "index.html"%}
+{% extends "index.html" %}
 {% block encabezado %}
-    {% include "encabezado.html" %}
-{% endblock%}
-{% block contenido %}
-<div class="container">
-    <div class="row justify-content-center mt-5 was-validated">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Iniciar Sesión</h2>
-                    <!-- Formulario de inicio de sesión -->
-                    <form action="/login/" method="POST">
-                        {% csrf_token %}
-                        <!-- Campo para ingresar el correo -->
-                        <div class="mb-3">
-                            <label for="usuario" class="form-label">Usuario:</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" required>
-                        </div>
-                        <!-- Campo para ingresar la contraseña -->
-                        <div class="mb-3">
-                            <label for="contrasena" class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control" id="contrasena" name="contraseña" required>
-                        </div>
-                        <!-- Botón de envío del formulario -->
-                        <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
-                        <!-- Mensaje de error -->
-                        <p class=" text-center text-danger mt-3">{{mensaje}}</p>
-                        <div 
-                        class="g-recaptcha" data-sitekey="6Lfk2MYpAAAAAKmNhKYrnOROemNMejmSbfcd9VoF">
-                    </div>
-                    </form>
+{% include "encabezado.html" %}
+{% endblock %}
+{%block contenido %}
+<h3 class="text-center fw-bold mt-2">SISTEMA MESA DE SERVICIO CENTRO CTPI CAUCA</h3>
+<div class="iniciarSesion mt-3 w-50" style="margin: 0 auto">
+    <div class="card w-75" style="margin: 0 auto">
+        <div class="card-header fw-bold text-center text-white verdeSena">INGRESAR AL SISTEMA</div>
+        <div class="card-body">
+            <form action="/login/" method="post" class="w-100" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="User" class="fw-bold">Usuario:</label>
+                    <input type="text" name="User" id="User" class="form-control"
+                        placeholder="Su Correo Electrónico" required>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-    grecaptcha.ready(function(){
-      grecaptcha.render("g-recaptcha", {
-        sitekey: "6Lfk2MYpAAAAAKmNhKYrnOROemNMejmSbfcd9VoF"
-      });
-    });
-</script>
+                <div class="mb-3">
+                    <label for="User" class="fw-bold">Password:</label>
+                    <input type="password" name="Password" id="Password" class="form-control"
+                        placeholder="Su Contraseña" required>
+                </div>
 
-{% endblock%}
+                <div>
+                    <button class="btn btn-success verdeSena">Ingresar</button>
+                    <button class="btn btn-secondary">Cancelar</button>
+                </div>
+
+                <br>
+            </form>
+        </div>
+        <div class="card-footer">Footer</div>
+    </div>
+
+
+</div>
+{% endblock %}
 {% block piePagina %}
-{% include "piePagina.html"%}
-{% endblock%}
+{% include "piePagina.html" %}
+{% endblock %}
